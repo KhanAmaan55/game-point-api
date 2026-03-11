@@ -12,6 +12,12 @@ generator client {
 model User {
   id        Int      @id @default(autoincrement())
   email     String   @unique
+  username  String?  @unique
   name      String?
+  passwordHash           String
+  refreshTokenHash       String?
+  resetPasswordTokenHash String?
+  resetPasswordExpiresAt DateTime?
   createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
